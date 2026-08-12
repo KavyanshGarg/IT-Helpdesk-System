@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - IT Helpdesk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">IT Helpdesk</div>
+
+        <div class="nav-links">
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>Create Account</h1>
+                {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+
+            <p class="subtitle">
+                Register to raise and track IT support requests.
+            </p>
+
+            <form method="POST">
+
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                <label>Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    value="{{ name|default('') }}"
+                    required
+                >
+
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value="{{ email|default('') }}"
+                    required
+                >
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+                <button class="btn" type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p>
+                Already have an account?
+                <a class="small-link" href="/login">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

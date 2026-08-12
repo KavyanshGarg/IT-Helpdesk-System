@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - IT Helpdesk</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            IT Helpdesk
+        </div>
+
+        <div class="nav-links">
+            <a href="/create">New Ticket</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+        <h1 class="page-title">
+            Welcome, {{ session["user_name"] }}
+        </h1>
+
+        <p class="user-info">
+            User ID: #{{ user["user_number"] }}
+        </p>
+
+        <p class="subtitle">
+            Manage your IT support requests.
+        </p>
+
+
+        <div class="ticket-box">
+
+            <h3>My Tickets</h3>
+
+            {% if tickets %}
+
+                {% for ticket in tickets %}
+
+                    <div class="ticket-box">
+
+                        <h3>
+                            Ticket #{{ ticket["ticket_number"] }}
+                        </h3>
+
+                        <p>
+                            <b>Problem:</b>
+                            {{ ticket["title"] }}
+                        </p>
+
+                        <p>
+                            <b>Category:</b>
+                            {{ ticket["category"] }}
+                        </p>
+
+                        <p>
+                            <b>Priority:</b>
+                            {{ ticket["priority"] }}
+                        </p>
+
+                        <div class="ticket-status">
+
+                            <strong>Current Status:</strong>
+
+                            {% if ticket["status"] == "Open" %}
+                                <span class="status open">Open</span>
+
+                            {% elif ticket["status"] == "In Progress" %}
+                                <span class="status progress">In Progress</span>
+
+                            {% elif ticket["status"] == "Resolved" %}
+                                <span class="status resolved">Resolved</span>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    You have not created any tickets yet.
+                </p>
+
+                <a href="/create" class="btn">
+                    Create Ticket
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>

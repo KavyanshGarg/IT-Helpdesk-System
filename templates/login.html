@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - IT Helpdesk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">IT Helpdesk</div>
+
+        <div class="nav-links">
+            <a href="/register">Create Account</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>Welcome Back</h1>
+
+            <p class="subtitle">
+                Sign in to manage your IT support requests.
+            </p>
+
+            <form method="POST">
+
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button class="btn" type="submit">
+                    Sign In
+                </button>
+
+            </form>
+
+            <p>
+                Don't have an account?
+                <a class="small-link" href="/register">Create one</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

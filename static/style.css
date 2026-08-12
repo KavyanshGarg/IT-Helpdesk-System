@@ -1,0 +1,492 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f1eb;
+    color: #202525;
+}
+
+.navbar {
+    background: #182b2b;
+    color: #f3f1eb;
+    padding: 16px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a {
+    color: #f3f1eb;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #d6a85c;
+}
+
+.container {
+    width: 88%;
+    max-width: 1050px;
+    margin: 45px auto;
+}
+
+.form-box {
+    width: 430px;
+    max-width: 100%;
+    margin: 40px auto;
+    background: #fffdf8;
+    padding: 32px;
+    border: 1px solid #ddd7c9;
+    border-radius: 8px;
+}
+
+.form-box h1 {
+    margin-top: 0;
+    color: #182b2b;
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #bbb6aa;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #d6a85c;
+    border-color: #182b2b;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 18px;
+    background: #b56b45;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #965538;
+}
+
+.secondary-btn {
+    background: #d6a85c;
+    color: #202525;
+}
+
+.secondary-btn:hover {
+    background: #c1924b;
+}
+
+.small-link {
+    color: #8b4d35;
+    text-decoration: none;
+}
+
+.small-link:hover {
+    text-decoration: underline;
+}
+
+.page-title {
+    color: #182b2b;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #66635c;
+    margin-top: 0;
+}
+
+.ticket-box {
+    background: #fffdf8;
+    border: 1px solid #ddd7c9;
+    border-left: 5px solid #b56b45;
+    padding: 20px;
+    margin: 18px 0;
+    border-radius: 5px;
+}
+
+.ticket-box h3 {
+    margin-top: 0;
+    color: #182b2b;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-open {
+    background: #f0dfbd;
+    color: #664b1d;
+}
+
+.status-progress {
+    background: #c9dddd;
+    color: #214949;
+}
+
+.status-resolved {
+    background: #d3dfcf;
+    color: #355032;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #f0dfbd;
+    border-left: 4px solid #b56b45;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fffdf8;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd7c9;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #182b2b;
+    color: #f3f1eb;
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 15px 4%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        margin-top: 12px;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 25px auto;
+    }
+}
+
+
+.error {
+    background: #f8d7da;
+    color: #842029;
+    padding: 10px 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #f1aeb5;
+}
+
+
+/* Ticket Status Badges */
+
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status.open {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.progress {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.resolved {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+
+
+/* ================================
+   ADMIN USER GROUPS
+   ================================ */
+
+.user-group {
+    margin: 20px 0;
+    border: 2px solid #d8d2c8;
+    border-radius: 12px;
+    background: #fffdf9;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+/* User box when mouse is over it */
+.user-group:hover {
+    border-color: #b96b43;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* User header */
+.user-group summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 22px;
+    background: #f7f3ed;
+    transition: background 0.25s ease;
+}
+
+/* Remove default triangle */
+.user-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.user-group summary:hover {
+    background: #eee8df;
+}
+
+/* Custom arrow */
+.user-group summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+/* Arrow when opened */
+.user-group[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* User information inside header */
+.user-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.user-header strong {
+    font-size: 18px;
+    color: #173234;
+}
+
+.user-email {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #667477;
+}
+
+/* Ticket count */
+.ticket-count {
+    background: #b96b43;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Ticket area */
+.user-tickets {
+    padding: 15px 18px 18px;
+    background: #faf8f4;
+    border-top: 1px solid #ddd6cc;
+}
+
+/* Individual ticket */
+.user-tickets .ticket {
+    margin: 12px 0;
+    padding: 18px;
+    border: 1px solid #ddd6cc;
+    border-left: 4px solid #b96b43;
+    border-radius: 9px;
+    background: #fffdf9;
+    transition: all 0.2s ease;
+}
+
+.user-tickets .ticket:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* Ticket heading */
+.user-tickets .ticket h3 {
+    margin-top: 0;
+    color: #173234;
+}
+
+/* Status dropdown */
+.user-tickets select[name="status"] {
+    padding: 9px 12px;
+    border: 1px solid #cfc7bc;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+/* Status dropdown focus */
+.user-tickets select[name="status"]:focus {
+    outline: none;
+    border-color: #b96b43;
+    box-shadow: 0 0 0 3px rgba(185, 107, 67, 0.12);
+}
+
+/* Update button */
+.user-tickets .btn {
+    transition: all 0.2s ease;
+}
+
+.user-tickets .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Administrator group */
+.user-group:first-of-type {
+    border-color: #777;
+}
+
+.user-group:first-of-type .ticket-count {
+    background: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 700px) {
+
+    .user-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ticket-count {
+        align-self: flex-start;
+    }
+
+    .user-tickets .ticket {
+        padding: 14px;
+    }
+
+    .user-tickets select[name="status"] {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .user-tickets .btn {
+        width: 100%;
+    }
+
+}
+
+
+
+/* ================================
+   ADMIN STATISTICS
+   ================================ */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.stat-card {
+    padding: 20px;
+    border: 1px solid #ddd6cc;
+    border-radius: 12px;
+    background: #fffdf9;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.stat-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #667477;
+    font-weight: 600;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 28px;
+    color: #173234;
+}
+
+/* Responsive statistics */
+@media (max-width: 900px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+}

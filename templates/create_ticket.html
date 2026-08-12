@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Ticket - IT Helpdesk</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            IT Helpdesk
+        </div>
+
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>Create Ticket</h1>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <p class="subtitle">
+                Tell us about the problem you are facing.
+            </p>
+
+
+            <form method="POST">
+
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">  #CSRF TOKEN 
+
+                <label>Problem Title</label>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Example: Wi-Fi is not connecting"
+                    required
+                >
+
+
+                <label>Description</label>
+
+                <textarea
+                    name="description"
+                    rows="5"
+                    placeholder="Explain the problem..."
+                    required
+                ></textarea>
+
+
+                <label>Category</label>
+
+                <select name="category" required>
+
+                    <option value="">Select category</option>
+
+                    <option value="Hardware">
+                        Hardware
+                    </option>
+
+                    <option value="Software">
+                        Software
+                    </option>
+
+                    <option value="Network">
+                        Network
+                    </option>
+
+                    <option value="Account">
+                        Account
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label>Priority</label>
+
+                <select name="priority" required>
+
+                    <option value="">Select priority</option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                </select>
+
+
+                <button class="btn" type="submit">
+                    Submit Ticket
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
