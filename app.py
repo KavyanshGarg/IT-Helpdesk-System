@@ -133,7 +133,7 @@ init_db()
 
 @app.route("/")
 def home():
-    return "IT Helpdesk System is Running!"
+    return redirect("/register")
 
 
 
